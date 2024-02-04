@@ -10,16 +10,19 @@ dependencies:
     version: 0.4.1(typescript@5.3.3)
   '@astrojs/react':
     specifier: ^3.0.9
-    version: 3.0.9(@types/react-dom@18.2.18)(@types/react@18.2.51)(react-dom@18.2.0)(react@18.2.0)(vite@5.0.12)
+    version: 3.0.9(@types/react-dom@18.2.18)(@types/react@18.2.52)(react-dom@18.2.0)(react@18.2.0)(vite@5.0.12)
   '@astrojs/tailwind':
     specifier: ^5.1.0
-    version: 5.1.0(astro@4.3.1)(tailwindcss@3.4.1)
+    version: 5.1.0(astro@4.3.2)(tailwindcss@3.4.1)
   '@radix-ui/react-slot':
     specifier: ^1.0.2
-    version: 1.0.2(@types/react@18.2.51)(react@18.2.0)
+    version: 1.0.2(@types/react@18.2.52)(react@18.2.0)
   astro:
-    specifier: ^4.2.6
-    version: 4.3.1(typescript@5.3.3)
+    specifier: ^4.3.2
+    version: 4.3.2(typescript@5.3.3)
+  chroma-js:
+    specifier: ^2.4.2
+    version: 2.4.2
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -55,9 +58,12 @@ dependencies:
     version: 5.3.3
   zustand:
     specifier: ^4.5.0
-    version: 4.5.0(@types/react@18.2.51)(react@18.2.0)
+    version: 4.5.0(@types/react@18.2.52)(react@18.2.0)
 
 devDependencies:
+  '@types/chroma-js':
+    specifier: ^2.4.3
+    version: 2.4.3
   '@types/geojson':
     specifier: ^7946.0.14
     version: 7946.0.14
@@ -65,8 +71,8 @@ devDependencies:
     specifier: ^1.9.8
     version: 1.9.8
   '@types/react':
-    specifier: ^18.2.51
-    version: 18.2.51
+    specifier: ^18.2.52
+    version: 18.2.52
   '@types/react-dom':
     specifier: ^18.2.18
     version: 18.2.18
@@ -178,7 +184,7 @@ packages:
       prismjs: 1.29.0
     dev: false
 
-  /@astrojs/react@3.0.9(@types/react-dom@18.2.18)(@types/react@18.2.51)(react-dom@18.2.0)(react@18.2.0)(vite@5.0.12):
+  /@astrojs/react@3.0.9(@types/react-dom@18.2.18)(@types/react@18.2.52)(react-dom@18.2.0)(react@18.2.0)(vite@5.0.12):
     resolution: {integrity: sha512-31J5yF5p9yBFV1axBooLA9PB4B2+MYm7swWhtlezSsJiUNXRFo5Is9qI3teJ7cKgmaCv+ZA593Smskko0NGaDQ==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
@@ -187,7 +193,7 @@ packages:
       react: ^17.0.2 || ^18.0.0
       react-dom: ^17.0.2 || ^18.0.0
     dependencies:
-      '@types/react': 18.2.51
+      '@types/react': 18.2.52
       '@types/react-dom': 18.2.18
       '@vitejs/plugin-react': 4.2.1(vite@5.0.12)
       react: 18.2.0
@@ -198,13 +204,13 @@ packages:
       - vite
     dev: false
 
-  /@astrojs/tailwind@5.1.0(astro@4.3.1)(tailwindcss@3.4.1):
+  /@astrojs/tailwind@5.1.0(astro@4.3.2)(tailwindcss@3.4.1):
     resolution: {integrity: sha512-BJoCDKuWhU9FT2qYg+fr6Nfb3qP4ShtyjXGHKA/4mHN94z7BGcmauQK23iy+YH5qWvTnhqkd6mQPQ1yTZTe9Ig==}
     peerDependencies:
       astro: ^3.0.0 || ^4.0.0
       tailwindcss: ^3.0.24
     dependencies:
-      astro: 4.3.1(typescript@5.3.3)
+      astro: 4.3.2(typescript@5.3.3)
       autoprefixer: 10.4.17(postcss@8.4.33)
       postcss: 8.4.33
       postcss-load-config: 4.0.2(postcss@8.4.33)
@@ -765,7 +771,7 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@radix-ui/react-compose-refs@1.0.1(@types/react@18.2.51)(react@18.2.0):
+  /@radix-ui/react-compose-refs@1.0.1(@types/react@18.2.52)(react@18.2.0):
     resolution: {integrity: sha512-fDSBgd44FKHa1FRMU59qBMPFcl2PZE+2nmqunj+BWFyYYjnhIDWL2ItDs3rrbJDQOtzt5nIebLCQc4QRfz6LJw==}
     peerDependencies:
       '@types/react': '*'
@@ -775,11 +781,11 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.23.9
-      '@types/react': 18.2.51
+      '@types/react': 18.2.52
       react: 18.2.0
     dev: false
 
-  /@radix-ui/react-slot@1.0.2(@types/react@18.2.51)(react@18.2.0):
+  /@radix-ui/react-slot@1.0.2(@types/react@18.2.52)(react@18.2.0):
     resolution: {integrity: sha512-YeTpuq4deV+6DusvVUW4ivBgnkHwECUu0BiN43L5UCDFgdhsRUWAghhTF5MbvNTPzmiFOx90asDSUjWuCNapwg==}
     peerDependencies:
       '@types/react': '*'
@@ -789,8 +795,8 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.23.9
-      '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.51)(react@18.2.0)
-      '@types/react': 18.2.51
+      '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.52)(react@18.2.0)
+      '@types/react': 18.2.52
       react: 18.2.0
     dev: false
 
@@ -939,6 +945,10 @@ packages:
       '@babel/types': 7.23.9
     dev: false
 
+  /@types/chroma-js@2.4.3:
+    resolution: {integrity: sha512-1ly5ly/7S/YF8aD7MxUQnFOZxdegimuOunJl0xDsLlguu5JrwuSTVGVH3UpIUlh6YauI0RMNT4cqjBonhgbdIQ==}
+    dev: true
+
   /@types/debug@4.1.12:
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
     dependencies:
@@ -987,10 +997,10 @@ packages:
   /@types/react-dom@18.2.18:
     resolution: {integrity: sha512-TJxDm6OfAX2KJWJdMEVTwWke5Sc/E/RlnPGvGfS0W7+6ocy2xhDVQVh/KvC2Uf7kACs+gDytdusDSdWfWkaNzw==}
     dependencies:
-      '@types/react': 18.2.51
+      '@types/react': 18.2.52
 
-  /@types/react@18.2.51:
-    resolution: {integrity: sha512-XeoMaU4CzyjdRr3c4IQQtiH7Rpo18V07rYZUucEZQwOUEtGgTXv7e6igQiQ+xnV6MbMe1qjEmKdgMNnfppnXfg==}
+  /@types/react@18.2.52:
+    resolution: {integrity: sha512-E/YjWh3tH+qsLKaUzgpZb5AY0ChVa+ZJzF7ogehVILrFpdQk6nC/WXOv0bfFEABbXbgNxLBGU7IIZByPKb6eBw==}
     dependencies:
       '@types/prop-types': 15.7.11
       '@types/scheduler': 0.16.8
@@ -1171,8 +1181,8 @@ packages:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
     dev: false
 
-  /astro@4.3.1(typescript@5.3.3):
-    resolution: {integrity: sha512-LAY2zQHOuOXEhpguyw5X0AIz6Xq+TAkBNEqrgIxwj72R87mmRQqQWmjChMPPkK95nFHkYR/71M2BrKunpbsfyw==}
+  /astro@4.3.2(typescript@5.3.3):
+    resolution: {integrity: sha512-SJotHzKG/I32ruYWItMRJjtmNQh14mVS7kahu3XfYyxvo6nx08PGJBTSPbqPrW1sjeQPHwcpVDFx3yMMK2kaxQ==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
     dependencies:
@@ -1433,6 +1443,10 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /chroma-js@2.4.2:
+    resolution: {integrity: sha512-U9eDw6+wt7V8z5NncY2jJfZa+hUH8XEj8FQHgFJTrUFnJfXYf4Ml4adI2vXZOjqRDpFWtYVWypDfZwnJ+HIR4A==}
+    dev: false
 
   /ci-info@3.9.0:
     resolution: {integrity: sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ==}
@@ -4342,7 +4356,7 @@ packages:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
     dev: false
 
-  /zustand@4.5.0(@types/react@18.2.51)(react@18.2.0):
+  /zustand@4.5.0(@types/react@18.2.52)(react@18.2.0):
     resolution: {integrity: sha512-zlVFqS5TQ21nwijjhJlx4f9iGrXSL0o/+Dpy4txAP22miJ8Ti6c1Ol1RLNN98BMib83lmDH/2KmLwaNXpjrO1A==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
@@ -4357,7 +4371,7 @@ packages:
       react:
         optional: true
     dependencies:
-      '@types/react': 18.2.51
+      '@types/react': 18.2.52
       react: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false
