@@ -1,11 +1,12 @@
 import type { APIRoute } from "astro";
+import type { GeoJSONExtended } from "@lib/api";
 import data from "@data/indonesia-34-provinces.json";
 
 export const GET: APIRoute = () => {
   return new Response(
     JSON.stringify({
       ...data,
-      features: data.features.map((f) => ({
+      features: (data as unknown as GeoJSONExtended).features.map((f) => ({
         ...f,
         properties: {
           id: f.properties.province_bps_code,

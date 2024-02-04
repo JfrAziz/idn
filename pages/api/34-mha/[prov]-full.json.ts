@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+import type { GeoJSONExtended } from "@lib/api";
 import data from "@data/indonesia-34-provinces.json";
 
 export const GET: APIRoute = ({ params }) => {
@@ -6,7 +7,7 @@ export const GET: APIRoute = ({ params }) => {
     JSON.stringify({
       ...data,
       name: "prov-" + params.prov,
-      features: data.features
+      features: (data as unknown as GeoJSONExtended).features
         .filter((f) => f.properties.province_mha_code === params.prov)
         .map((f) => ({
           ...f,
@@ -30,7 +31,9 @@ export const GET: APIRoute = ({ params }) => {
 export function getStaticPaths() {
   return [
     ...new Set(
-      (data as any).features.map((i: any) => i.properties.province_mha_code)
+      (data as unknown as GeoJSONExtended).features.map(
+        (i) => i.properties.province_mha_code
+      )
     ),
   ].map((p) => ({ params: { prov: p } }));
 }
