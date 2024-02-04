@@ -8,10 +8,10 @@ export const GET: APIRoute = () => {
       features: data.features.map((f) => ({
         ...f,
         properties: {
-          id: f.properties.province_bps_code,
-          name: f.properties.province_bps_name,
-          province: f.properties.province_bps_code,
-          province_name: f.properties.province_bps_name,
+          id: f.properties.province_mha_code,
+          name: f.properties.province_mha_name,
+          province: f.properties.province_mha_code,
+          province_name: f.properties.province_mha_name,
         },
       })),
     }),

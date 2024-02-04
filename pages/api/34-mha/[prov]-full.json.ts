@@ -7,14 +7,14 @@ export const GET: APIRoute = ({ params }) => {
       ...data,
       name: "prov-" + params.prov,
       features: data.features
-        .filter((f) => f.properties.province_bps_code === params.prov)
+        .filter((f) => f.properties.province_mha_code === params.prov)
         .map((f) => ({
           ...f,
           properties: {
-            id: f.properties.province_bps_code,
-            name: f.properties.province_bps_name,
-            province: f.properties.province_bps_code,
-            province_name: f.properties.province_bps_name,
+            id: f.properties.province_mha_code,
+            name: f.properties.province_mha_name,
+            province: f.properties.province_mha_code,
+            province_name: f.properties.province_mha_name,
           },
         })),
     }),
@@ -30,7 +30,7 @@ export const GET: APIRoute = ({ params }) => {
 export function getStaticPaths() {
   return [
     ...new Set(
-      (data as any).features.map((i: any) => i.properties.province_bps_code)
+      (data as any).features.map((i: any) => i.properties.province_mha_code)
     ),
   ].map((p) => ({ params: { prov: p } }));
 }

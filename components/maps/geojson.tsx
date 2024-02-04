@@ -32,6 +32,7 @@ export const GeoJSONLayer = () => {
           style={{ opacity: 1, dashArray: "0" }}
           onEachFeature={(f, l) =>
             l.on("click", () => {
+              console.log(f.properties)
               useMapStore.setState({
                 source: { source: "34-bps", province: f.properties.id },
               });
