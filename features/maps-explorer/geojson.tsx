@@ -1,20 +1,26 @@
-import useSWR from "swr";
 import chroma from "chroma-js";
+import { useMapStore } from "./store";
 import { GeoJSON } from "react-leaflet";
 import { useEffect, useState } from "react";
-import { useMapStore } from "@components/store";
+import useSWRImmutable from "swr/immutable";
 import { INDONESIA_BOUNDING_BOX } from "./config";
+import { useWindowSize } from "@uidotdev/usehooks";
 import { FeatureGroup, useMap } from "react-leaflet";
 import { geoJSONfetcher, getHierarichalGeoJSONURL } from "@lib/api";
 
 export const GeoJSONLayer = () => {
   const map = useMap();
 
+  const size = useWindowSize();
+
   const source = useMapStore((state) => state.source);
 
   const [color, setColor] = useState<string[]>([]);
 
-  const { data } = useSWR(getHierarichalGeoJSONURL(source), geoJSONfetcher);
+  const { data } = useSWRImmutable(
+    getHierarichalGeoJSONURL(source),
+    geoJSONfetcher
+  );
 
   useEffect(() => {
     const bounds = useMapStore.getState().geoJSONref?.getBounds();
@@ -23,14 +29,14 @@ export const GeoJSONLayer = () => {
     else map.fitBounds(INDONESIA_BOUNDING_BOX);
 
     if (data) setColor(chroma.scale("OrRd").colors(data.features.length));
-  }, [data]);
+  }, [data, size]);
 
   return (
     <FeatureGroup ref={(ref) => useMapStore.setState({ geoJSONref: ref })}>
       {data?.features.map((feature, idx) => (
         <GeoJSON
           data={feature}
-          key={feature.properties.id}
+          key={source.source + feature.properties.id}
           style={{
             opacity: 1,
             weight: 0.5,
@@ -41,7 +47,13 @@ export const GeoJSONLayer = () => {
           onEachFeature={(f, l) =>
             l.on("click", () =>
               useMapStore.setState({
-                source: { source: "34-bps", province: f.properties.province },
+                source: {
+                  source: source.source,
+                  province: f.properties.province,
+                  regency: f.properties.regency,
+                  district: f.properties.district,
+                  village: f.properties.village,
+                },
               })
             )
           }
