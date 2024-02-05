@@ -9,10 +9,10 @@ export const GET: APIRoute = () => {
       features: (data as unknown as GeoJSONExtended).features.map((f) => ({
         ...f,
         properties: {
-          id: f.properties.province_mha_code,
-          name: f.properties.province_mha_name,
-          province: f.properties.province_mha_code,
-          province_name: f.properties.province_mha_name,
+          id: f.properties.province_kemendagri_code,
+          name: f.properties.province_kemendagri_name,
+          province: f.properties.province_kemendagri_code,
+          province_name: f.properties.province_kemendagri_name,
         },
       })),
     }),

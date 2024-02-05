@@ -12,7 +12,7 @@ export const GET: APIRoute = ({ params }) => {
         .map((f) => ({
           ...f,
           properties: {
-            id: f.properties.regency_bps_code,
+            id: `${f.properties.province_bps_code}${f.properties.regency_bps_code}`,
             name: f.properties.regency_bps_name,
             province: f.properties.province_bps_code,
             province_name: f.properties.province_bps_name,

@@ -16,10 +16,20 @@ export interface GeoJSONExtended extends FeatureCollection {
 }
 
 /**
+ * we only have 4 atm,
+ */
+export type DataSource =
+  | "34-bps"
+  | "38-bps"
+  | "34-kemendagri"
+  | "38-kemendagri";
+
+/**
  * all API in this project has structure like this
  */
+
 export interface GeoJSONSource {
-  source: "34-bps" | "38-bps" | "34-kemendagri" | "38-kemendagri";
+  source: DataSource;
   province?: string;
   regency?: string;
   district?: string;
