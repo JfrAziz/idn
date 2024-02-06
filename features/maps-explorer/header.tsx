@@ -28,7 +28,9 @@ export const Header = () => {
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="34-bps">34 BPS</SelectItem>
+            <SelectItem value="38-bps">38 BPS</SelectItem>
             <SelectItem value="34-kemendagri">34 Kemendagri</SelectItem>
+            <SelectItem value="38-kemendagri">38 Kemendagri</SelectItem>
           </SelectContent>
         </Select>
         <ChevronRight className="size-4" />
