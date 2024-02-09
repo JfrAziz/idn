@@ -6,7 +6,7 @@ import useSWRImmutable from "swr/immutable";
 import { INDONESIA_BOUNDING_BOX } from "./config";
 import { useWindowSize } from "@uidotdev/usehooks";
 import { FeatureGroup, useMap } from "react-leaflet";
-import { geoJSONfetcher, getHierarchicalGeoJSONURL } from "@lib/api";
+import { geoJSONfetcher, getHierarichalGeoJSONURL } from "@lib/api";
 
 export const GeoJSONLayer = () => {
   const map = useMap();
@@ -18,7 +18,7 @@ export const GeoJSONLayer = () => {
   const [color, setColor] = useState<string[]>([]);
 
   const { data } = useSWRImmutable(
-    getHierarchicalGeoJSONURL(source),
+    getHierarichalGeoJSONURL(source),
     geoJSONfetcher
   );
 

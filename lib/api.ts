@@ -49,7 +49,7 @@ export const geoJSONfetcher = (endpoint: string) =>
   fetch(endpoint).then((res) => res.json()) as Promise<GeoJSONExtended>;
 
 /**
- * get hierarchical geojson URL, hiearichal geojson
+ * get hierarichal geojson URL, hiearichal geojson
  * will show all the child for current source, for example
  * when the source is the province, they will display all
  * regencies on it instead display the province full in one
@@ -58,7 +58,7 @@ export const geoJSONfetcher = (endpoint: string) =>
  * @param source
  * @returns
  */
-export const getHierarchicalGeoJSONURL = (source: GeoJSONSource): string => {
+export const getHierarichalGeoJSONURL = (source: GeoJSONSource): string => {
   let result = getAPIURL() + "/" + source.source;
 
   if (source.province)
